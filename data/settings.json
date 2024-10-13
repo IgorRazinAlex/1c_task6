@@ -1,0 +1,7 @@
+{
+  "pguser": "admin",
+  "pgpassword": "admin",
+  "pghost": "localhost",
+  "pgport": "5432",
+  "pgdb": "users"
+}

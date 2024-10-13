@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<img src="/static/image/meals/{{ meal.id }}.jpg" width="30%" alt="Preview">
+<h1 class="title">{{ meal.name }}</h1>
+<br>
+<h3>Author: {{ author.username }}</h3>
+<br>
+<h2>Calories: {{ meal.calories }}</h3>
+<h2>Proteins: {{ meal.proteins }}</h3>
+<h2>Fats: {{ meal.fats }}</h3>
+<h2>Carbonades: {{ meal.carbonades }}</h3>
+<br>
+<p class="lead">About:</p>
+<p>{{ meal.about }}</p>
+<br>
+{% if current_user.id == meal.author %}
+<a href="/meals/{{ meal.id }}/change_meal" class="btn btn-dark">Change</a>
+{% endif %}
+{% if current_user.is_authenticated %}
+<a href="/meals/{{ meal.id }}/sub" class="btn btn-dark">Add to favorites</a>
+{% endif %}
+{% endblock %}

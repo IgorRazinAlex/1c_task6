@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="page-title">Registration</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.email.label }}
+        {{ form.email(class="form-control", type="email") }}
+        {% for error in form.email.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.username.label }}
+        {{ form.username(class="form-control") }}
+        {% for error in form.username.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.age.label }}
+        {{ form.age(class="form-control") }}
+        {% for error in form.age.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.password.label }}
+        {{ form.password(class="form-control", type="password") }}
+        {% for error in form.password.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.password_check.label }}
+        {{ form.password_check(class="form-control", type="password") }}
+        {% for error in form.password_check.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3 submit">
+        {{ form.submit(type="submit", class="btn btn-primary") }}
+    </div>
+    {{ message }}
+</form>
+{% endblock %}

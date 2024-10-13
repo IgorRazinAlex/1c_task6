@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h1 class="title">{{ filter_type }} meals</h1>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for post in posts %}
+    <div class="col">
+        <div class="card text-white bg-dark mb-3" style="width: 18rem; height: 34rem;">
+            <img src="/static/image/meals/{{ post.id }}.jpg" class="card-img-top" alt="Preview">
+            <div class="card-body">
+                {% if post.name|length >= 33 %}
+                    {% set title = post.name[:30] + '...' %}
+                {% else %}
+                    {% set title = post.name %}
+                {% endif %}
+                <h5 class="card-title">{{ title }}</h5>
+                <a href="/meals/{{ post.id }}" class="btn btn-light">Explore</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

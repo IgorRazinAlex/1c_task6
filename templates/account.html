@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>User: {{ user.username }}</h1>
+<p class="lead">Subscriptions:</p>
+
+{% for sub in subscriptions %}
+<div class="card text-white bg-dark mb-3" style="width: 18rem; height: 34rem;">
+    <img src="/static/image/meals/{{ sub.id }}.jpg" class="card-img-top" alt="Preview">
+    <div class="card-body">
+        {% if sub.name|length >= 33 %}
+            {% set title = sub.name[:30] + '...' %}
+        {% else %}
+            {% set title = sub.name %}
+        {% endif %}
+        <h5 class="card-title">{{ title }}</h5>
+        <a href="/meals/{{ sub.id }}" class="btn btn-light">Explore</a>
+    </div>
+</div>
+{% endfor %}
+
+<a class="btn btn-dark" href="/account/add_dinner">Add dinner</a>
+<a class="btn btn-dark" href="/account/check_cpfc">Check CPFC</a>
+<a class="btn btn-dark" href="/account/logout">Log out</a>
+
+{% endblock %}

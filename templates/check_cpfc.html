@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">Check CPFC</h1>
+<a href="/account" class="btn btn-dark">Return</a>
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.from_date.label }}
+        {{ form.from_date(class="form-control") }}
+        {% for error in form.from_date.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.to_date.label }}
+        {{ form.to_date(class="form-control") }}
+        {% for error in form.to_date.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3 submit">
+        {{ form.submit(type="submit", class="btn btn-primary") }}
+    </div>
+    {{ message }}
+    <img src="/{{ impath }}" class="card-img-top" alt="Preview">
+</form>
+{% endblock %}

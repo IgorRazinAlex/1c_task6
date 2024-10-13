@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">Change meal</h1>
+<p class="lead">Leave fields empty if you don`t want to change them</p>
+<a href="/meals/{{ meal.id }}" class="btn btn-dark">Return</a>
+<form action="" method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+        {{ form.name.label }}
+        {{ form.name(class="form-control") }}
+        {% for error in form.name.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.calories.label }}
+        {{ form.calories(class="form-control") }}
+        {% for error in form.calories.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.proteins.label }}
+        {{ form.proteins(class="form-control") }}
+        {% for error in form.proteins.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.fats.label }}
+        {{ form.fats(class="form-control") }}
+        {% for error in form.fats.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.carbonades.label }}
+        {{ form.carbonades(class="form-control") }}
+        {% for error in form.carbonades.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.about.label }}
+        {{ form.about(class="form-control") }}
+        {% for error in form.about.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3">
+        {{ form.preview.label }}
+        {{ form.preview(class="form-control") }}
+        {% for error in form.preview.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="mb-3 submit">
+        {{ form.submit(type="submit", class="btn btn-primary") }}
+    </div>
+    {{ message }}
+</form>
+{% endblock %}
